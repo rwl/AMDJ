@@ -77,6 +77,14 @@ public class Damd_internal extends Damd {
 		return (((a) < (b)) ? (a) : (b)) ;
 	}
 
+	/**
+	 * logical expression of p implies q:
+	 */
+	protected static boolean IMPLIES(boolean p, boolean q)
+	{
+		return (!(p) || (q)) ;
+	}
+
 	protected static final int TRUE = (1) ;
 	protected static final int FALSE = (0) ;
 

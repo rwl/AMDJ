@@ -42,7 +42,8 @@ package edu.ufl.cise.amd.tdouble;
  */
 public class Damd {
 
-	public static int AMD_debug = 0 ;
+	/** default is no debug printing */
+	public static int AMD_debug = -999 ;
 
 	/**
 	 * size of Control array
@@ -120,9 +121,9 @@ public class Damd {
 	/* input arguments are not valid */
 	protected static final int AMD_INVALID = -2 ;
 	/* input matrix is OK for amd_order, but
-     * columns were not sorted, and/or duplicate entries were present.  AMD had
-     * to do extra work before ordering the matrix.  This is a warning, not an
-     * error.  */
+	 * columns were not sorted, and/or duplicate entries were present.  AMD had
+	 * to do extra work before ordering the matrix.  This is a warning, not an
+	 * error.  */
 	protected static final int AMD_OK_BUT_JUMBLED = 1 ;
 
 	/* ========================================================================== */
