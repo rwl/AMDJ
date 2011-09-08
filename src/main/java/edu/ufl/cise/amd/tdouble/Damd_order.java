@@ -25,7 +25,7 @@ package edu.ufl.cise.amd.tdouble;
  */
 public class Damd_order extends Damd_internal {
 
-	public static int AMD_order (int n,
+	public static int amd_order (int n,
 			final int[] Ap,
 			final int[] Ai,
 			int[] P,

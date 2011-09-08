@@ -48,83 +48,83 @@ public class Damd {
 	/**
 	 * size of Control array
 	 */
-	protected static final int AMD_CONTROL = 5 ;
+	public static final int AMD_CONTROL = 5 ;
 
 	/**
 	 * size of Info array
 	 */
-	protected static final int AMD_INFO = 20 ;
+	public static final int AMD_INFO = 20 ;
 
 	/* contents of Control */
 
 	/**
 	 * "dense" if degree > Control [0] * sqrt (n)
 	 */
-	protected static final int AMD_DENSE = 0 ;
+	public static final int AMD_DENSE = 0 ;
 
 	/**
 	 * do aggressive absorption if Control [1] != 0
 	 */
-	protected static final int AMD_AGGRESSIVE = 1 ;
+	public static final int AMD_AGGRESSIVE = 1 ;
 
 	/* default Control settings */
 
 	/**
 	 * default "dense" degree 10*sqrt(n)
 	 */
-	protected static final double AMD_DEFAULT_DENSE = 10.0 ;
+	public static final double AMD_DEFAULT_DENSE = 10.0 ;
 
 	/**
 	 * do aggressive absorption by default
 	 */
-	protected static final int AMD_DEFAULT_AGGRESSIVE = 1 ;
+	public static final int AMD_DEFAULT_AGGRESSIVE = 1 ;
 
 	/* contents of Info */
 
 	/** return value of amd_order and amd_l_order */
-	protected static final int AMD_STATUS = 0 ;
+	public static final int AMD_STATUS = 0 ;
 	/** A is n-by-n */
-	protected static final int AMD_N = 1 ;
+	public static final int AMD_N = 1 ;
 	/** number of nonzeros in A */
-	protected static final int AMD_NZ = 2 ;
+	public static final int AMD_NZ = 2 ;
 	/** symmetry of pattern (1 is sym., 0 is unsym.) */
-	protected static final int AMD_SYMMETRY = 3 ;
+	public static final int AMD_SYMMETRY = 3 ;
 	/** # of entries on diagonal */
-	protected static final int AMD_NZDIAG = 4 ;
+	public static final int AMD_NZDIAG = 4 ;
 	/** nz in A+A' */
-	protected static final int AMD_NZ_A_PLUS_AT = 5 ;
+	public static final int AMD_NZ_A_PLUS_AT = 5 ;
 	/** number of "dense" rows/columns in A */
-	protected static final int AMD_NDENSE = 6 ;
+	public static final int AMD_NDENSE = 6 ;
 	/** amount of memory used by AMD */
-	protected static final int AMD_MEMORY = 7 ;
+	public static final int AMD_MEMORY = 7 ;
 	/** number of garbage collections in AMD */
-	protected static final int AMD_NCMPA = 8 ;
+	public static final int AMD_NCMPA = 8 ;
 	/** approx. nz in L, excluding the diagonal */
-	protected static final int AMD_LNZ = 9 ;
+	public static final int AMD_LNZ = 9 ;
 	/** number of fl. point divides for LU and LDL' */
-	protected static final int AMD_NDIV = 10 ;
+	public static final int AMD_NDIV = 10 ;
 	/** number of fl. point (*,-) pairs for LDL' */
-	protected static final int AMD_NMULTSUBS_LDL = 11 ;
+	public static final int AMD_NMULTSUBS_LDL = 11 ;
 	/** number of fl. point (*,-) pairs for LU */
-	protected static final int AMD_NMULTSUBS_LU = 12 ;
+	public static final int AMD_NMULTSUBS_LU = 12 ;
 	/** max nz. in any column of L, incl. diagonal */
-	protected static final int AMD_DMAX = 13 ;
+	public static final int AMD_DMAX = 13 ;
 
 	/* ------------------------------------------------------------------------- */
 	/* return values of AMD */
 	/* ------------------------------------------------------------------------- */
 
 	/* success */
-	protected static final int AMD_OK = 0 ;
+	public static final int AMD_OK = 0 ;
 	/* malloc failed, or problem too large */
-	protected static final int AMD_OUT_OF_MEMORY = -1 ;
+	public static final int AMD_OUT_OF_MEMORY = -1 ;
 	/* input arguments are not valid */
-	protected static final int AMD_INVALID = -2 ;
+	public static final int AMD_INVALID = -2 ;
 	/* input matrix is OK for amd_order, but
 	 * columns were not sorted, and/or duplicate entries were present.  AMD had
 	 * to do extra work before ordering the matrix.  This is a warning, not an
 	 * error.  */
-	protected static final int AMD_OK_BUT_JUMBLED = 1 ;
+	public static final int AMD_OK_BUT_JUMBLED = 1 ;
 
 	/* ========================================================================== */
 	/* === AMD version ========================================================== */
