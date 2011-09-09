@@ -31,7 +31,7 @@ public class Damd_info extends Damd_internal {
 		if (x >= 0) { PRINTF (format, x) ; }
 	}
 
-	public static void AMD_info (double[] Info)
+	public static void amd_info (double[] Info)
 	{
 		double n, ndiv, nmultsubs_ldl, nmultsubs_lu, lnz, lnzd ;
 

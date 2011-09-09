@@ -18,23 +18,25 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301
  */
 
-package edu.ufl.cise.amd.tdouble;
+package edu.ufl.cise.amd.tdouble.test;
 
-public class Damd_defaults extends Damd_internal {
+import junit.framework.TestCase;
 
-	public static void amd_defaults(double[] Control)
-	{
-		int i ;
+import static edu.ufl.cise.amd.tdouble.Damd_order.amd_order;
 
-		if (Control != null)
-		{
-		for (i = 0 ; i < AMD_CONTROL ; i++)
-		{
-			Control [i] = 0 ;
-		}
-		Control [AMD_DENSE] = AMD_DEFAULT_DENSE ;
-		Control [AMD_AGGRESSIVE] = AMD_DEFAULT_AGGRESSIVE ;
-		}
+public class Damd_simple extends TestCase {
+
+	int n = 5 ;
+	int[] Ap = new int [] { 0,   2,       6,       10,  12, 14} ;
+	int[] Ai = new int [] { 0,1, 0,1,2,4, 1,2,3,4, 2,3, 1,4   } ;
+	int[] P = new int [5] ;
+	int[] sol = new int[] {0, 3, 2, 4, 1} ;
+
+	public void amd_simple_test() {
+	    int k ;
+	    amd_order (n, Ap, Ai, P, null, null) ;
+	    for (k = 0 ; k < n ; k++)
+		    assertEquals(sol [k], P [k]) ;
 	}
 
 }
