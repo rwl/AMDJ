@@ -36,4 +36,5 @@ public class Damd_defaults extends Damd_internal {
 		Control [AMD_AGGRESSIVE] = AMD_DEFAULT_AGGRESSIVE ;
 		}
 	}
+
 }

@@ -20,6 +20,9 @@
 
 package edu.ufl.cise.amd.tdouble;
 
+import static edu.ufl.cise.amd.tdouble.Damd_2.amd_2;
+import static edu.ufl.cise.amd.tdouble.Damd_valid.amd_valid;
+
 /**
  * AMD_1: Construct A+A' for a sparse matrix A and perform the AMD ordering.
  *
@@ -52,12 +55,12 @@ public class Damd_1 extends Damd_internal {
 	 * @param Control input array of size AMD_CONTROL
 	 * @param Info output array of size AMD_INFO
 	 */
-	public static void AMD_1(int n, final int[] Ap, final int[] Ai,
+	public static void amd_1(int n, final int[] Ap, final int[] Ai,
 			int[] P, int[] Pinv, int[] Len, int slen, int[] S,
 			double[] Control, double[] Info)
 	{
 		int i, j, k, p, pfree, iwlen, pj, p1, p2, pj2;
-		int[] Iw, Pe, Nv, Head, Elen, Degree, s, W, Sp, Tp ;
+		int[] Iw, Pe, Nv, Head, Elen, Degree, W, Sp, Tp ;//, s;
 
 		/* --------------------------------------------------------------------- */
 		/* construct the matrix for AMD_2 */
@@ -66,16 +69,23 @@ public class Damd_1 extends Damd_internal {
 		ASSERT (n > 0) ;
 
 		iwlen = slen - 6*n ;
-		s = S ;
-		Pe = s ;	    s += n ;
-		Nv = s ;	    s += n ;
-		Head = s ;	    s += n ;
-		Elen = s ;	    s += n ;
-		Degree = s ;    s += n ;
-		W = s ;	    s += n ;
-		Iw = s ;	    s += iwlen ;
+		//s = S ;
+		//Pe = s ;	    s += n ;
+		Pe = new int[n] ;
+		//Nv = s ;	    s += n ;
+		Nv = new int[n] ;
+		//Head = s ;	    s += n ;
+		Head = new int[n] ;
+		//Elen = s ;	    s += n ;
+		Elen = new int[n] ;
+		//Degree = s ;    s += n ;
+		Degree = new int[n] ;
+		//W = s ;	    s += n ;
+		W = new int[n] ;
+		//Iw = s ;	    s += iwlen ;
+		Iw = new int[iwlen] ;
 
-		ASSERT (Damd_valid.AMD_valid (n, n, Ap, Ai) == AMD_OK) ;
+		ASSERT (amd_valid (n, n, Ap, Ai) == AMD_OK) ;
 
 		/* construct the pointers for A+A' */
 		Sp = Nv ;			/* use Nv and W as workspace for Sp and Tp [ */
@@ -192,7 +202,7 @@ public class Damd_1 extends Damd_internal {
 		/* order the matrix */
 		/* --------------------------------------------------------------------- */
 
-		Damd_2.AMD_2 (n, Pe, Iw, Len, iwlen, pfree,
+		amd_2 (n, Pe, Iw, Len, iwlen, pfree,
 		Nv, Pinv, P, Head, Elen, Degree, W, Control, Info) ;
 	}
 

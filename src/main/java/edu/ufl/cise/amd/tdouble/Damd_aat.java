@@ -20,6 +20,9 @@
 
 package edu.ufl.cise.amd.tdouble;
 
+import static edu.ufl.cise.amd.tdouble.Damd_dump.amd_debug_init;
+import static edu.ufl.cise.amd.tdouble.Damd_valid.amd_valid;
+
 /**
  * AMD_aat:  compute the symmetry of the pattern of A, and count the number of
  * nonzeros each column of A+A' (excluding the diagonal).  Assumes the input
@@ -39,7 +42,7 @@ public class Damd_aat extends Damd_internal {
 	 * @param Info
 	 * @return
 	 */
-	public static int AMD_aat(int n,
+	public static int amd_aat(int n,
 			final int[] Ap,
 			final int[] Ai,
 			int[] Len,
@@ -52,9 +55,9 @@ public class Damd_aat extends Damd_internal {
 
 		if (!NDEBUG)
 		{
-			Damd_dump.AMD_debug_init ("AMD AAT") ;
+			amd_debug_init ("AMD AAT") ;
 			for (k = 0 ; k < n ; k++) Tp [k] = EMPTY ;
-			ASSERT (Damd_valid.AMD_valid (n, n, Ap, Ai) == AMD_OK) ;
+			ASSERT (amd_valid (n, n, Ap, Ai) == AMD_OK) ;
 		}
 
 		if (Info != null)

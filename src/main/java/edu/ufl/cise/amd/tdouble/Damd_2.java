@@ -20,6 +20,9 @@
 
 package edu.ufl.cise.amd.tdouble;
 
+import static edu.ufl.cise.amd.tdouble.Damd_dump.amd_dump;
+import static edu.ufl.cise.amd.tdouble.Damd_postorder.amd_postorder;
+
 /**
  * AMD_2:  performs the AMD ordering on a symmetric sparse matrix A, followed
  * by a postordering (via depth-first search) of the assembly tree using the
@@ -447,7 +450,7 @@ public class Damd_2 extends Damd_internal {
 	 * @param Control array of size AMD_CONTROL
 	 * @param Info array of size AMD_INFO
 	 */
-	public static void AMD_2 (int n, int[] Pe, int[] Iw, int[] Len, int iwlen,
+	public static void amd_2 (int n, int[] Pe, int[] Iw, int[] Len, int iwlen,
 			int pfree, int[] Nv, int[] Next, int[] Last, int[] Head,
 			int[] Elen, int[] Degree, int[] W, double[] Control, double[] Info)
 	{
@@ -598,7 +601,7 @@ public class Damd_2 extends Damd_internal {
 		}
 		else
 		{
-		dense = alpha * sqrt ((double) n) ;
+		dense = (int) (alpha * sqrt (n)) ;
 		}
 		dense = MAX (16, dense) ;
 		dense = MIN (n,  dense) ;
@@ -622,7 +625,7 @@ public class Damd_2 extends Damd_internal {
 		if (!NDEBUG)
 		{
 			AMD_DEBUG1 ("\n======Nel "+ID+" initial\n", nel) ;
-			Damd_dump.AMD_dump (n, Pe, Iw, Len, iwlen, pfree, Nv, Next, Last,
+			amd_dump (n, Pe, Iw, Len, iwlen, pfree, Nv, Next, Last,
 				Head, Elen, Degree, W, -1) ;
 		}
 
@@ -702,7 +705,7 @@ public class Damd_2 extends Damd_internal {
 			AMD_DEBUG1 ("\n======Nel "+ID+"\n", nel) ;
 			if (AMD_debug >= 2)
 			{
-				Damd_dump.AMD_dump (n, Pe, Iw, Len, iwlen, pfree, Nv, Next,
+				amd_dump (n, Pe, Iw, Len, iwlen, pfree, Nv, Next,
 					Last, Head, Elen, Degree, W, nel) ;
 			}
 		}
@@ -1767,7 +1770,7 @@ public class Damd_2 extends Damd_internal {
 /* postorder the assembly tree */
 /* ========================================================================= */
 
-		Damd_postorder.AMD_postorder (n, Pe, Nv, Elen,
+		amd_postorder (n, Pe, Nv, Elen,
 		W,			/* output order */
 		Head, Next, Last) ;	/* workspace */
 

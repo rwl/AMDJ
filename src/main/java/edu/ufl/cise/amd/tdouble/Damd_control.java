@@ -27,7 +27,7 @@ package edu.ufl.cise.amd.tdouble;
  */
 public class Damd_control extends Damd_internal {
 
-	public static void AMD_control(double[] Control)
+	public static void amd_control(double[] Control)
 	{
 		double alpha ;
 		int aggressive ;
@@ -68,6 +68,6 @@ public class Damd_control extends Damd_internal {
 		PRINTF ("    aggressive absorption:  no\n") ;
 		}
 
-		PRINTF ("    size of AMD integer: %d\n\n", sizeof (int)) ;
+//		PRINTF ("    size of AMD integer: %d\n\n", sizeof (int)) ;
 	}
 }

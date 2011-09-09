@@ -25,11 +25,11 @@ package edu.ufl.cise.amd.tdouble;
  */
 public class Damd_post_tree extends Damd_internal {
 
-	public static int AMD_post_tree (int root, int k, int[] Child,
+	public static int amd_post_tree (int root, int k, int[] Child,
 			final int[] Sibling, int[] Order, int[] Stack)
 	{
 		// TODO: check default nn value of 0
-		return AMD_post_tree (root, k, Child, Sibling, Order, Stack, 0) ;
+		return amd_post_tree (root, k, Child, Sibling, Order, Stack, 0) ;
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class Damd_post_tree extends Damd_internal {
 	 * @param nn nodes are in the range 0..nn-1.
 	 * @return
 	 */
-	public static int AMD_post_tree (int root, int k, int[] Child,
+	public static int amd_post_tree (int root, int k, int[] Child,
 			final int[] Sibling, int[] Order, int[] Stack, int nn)
 	{
 		int f, head, h, i ;

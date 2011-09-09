@@ -20,6 +20,8 @@
 
 package edu.ufl.cise.amd.tdouble;
 
+import static edu.ufl.cise.amd.tdouble.Damd_valid.amd_valid;
+
 /**
  * Sorts, removes duplicate entries, and transposes from the nonzero pattern of
  * a column-form matrix A, to obtain the matrix R.  The input matrix can have
@@ -42,7 +44,7 @@ public class Damd_preprocess extends Damd_internal {
 	 * @param W workspace of size n
 	 * @param Flag workspace of size n
 	 */
-	public static void AMD_preprocess (int n, final int[] Ap, final int[] Ai,
+	public static void amd_preprocess (int n, final int[] Ap, final int[] Ai,
 			int[] Rp, int[] Ri, int[] W, int[] Flag)
 	{
 		/* ----------------------------------------------------------------- */
@@ -51,7 +53,7 @@ public class Damd_preprocess extends Damd_internal {
 
 		int i, j, p, p2 ;
 
-		ASSERT (Damd_valid.AMD_valid (n, n, Ap, Ai) != AMD_INVALID) ;
+		ASSERT (amd_valid (n, n, Ap, Ai) != AMD_INVALID) ;
 
 		/* ----------------------------------------------------------------- */
 		/* count the entries in each row of A (excluding duplicates) */
@@ -114,7 +116,7 @@ public class Damd_preprocess extends Damd_internal {
 
 		if (!NDEBUG)
 		{
-			ASSERT (Damd_valid.AMD_valid (n, n, Rp, Ri) == AMD_OK) ;
+			ASSERT (amd_valid (n, n, Rp, Ri) == AMD_OK) ;
 			for (j = 0 ; j < n ; j++)
 			{
 			ASSERT (W [j] == Rp [j+1]) ;

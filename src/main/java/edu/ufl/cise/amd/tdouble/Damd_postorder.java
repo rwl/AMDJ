@@ -20,6 +20,8 @@
 
 package edu.ufl.cise.amd.tdouble;
 
+import static edu.ufl.cise.amd.tdouble.Damd_post_tree.amd_post_tree;
+
 /**
  * Perform a postordering (via depth-first search) of an assembly tree.
  */
@@ -37,7 +39,7 @@ public class Damd_postorder extends Damd_internal {
 	 * @param Sibling size nn
 	 * @param Stack size nn
 	 */
-	public static void AMD_postorder (int nn, int[] Parent, int[] Nv,
+	public static void amd_postorder (int nn, int[] Parent, int[] Nv,
 			int[] Fsize, int[] Order, int[] Child, int[] Sibling, int[] Stack)
 	{
 		int i, j, k, parent, frsize, f, fprev, maxfrsize, bigfprev, bigf, fnext ;
@@ -209,12 +211,12 @@ public class Damd_postorder extends Damd_internal {
 		    AMD_DEBUG1 ("Root of assembly tree "+ID+"\n", i) ;
 		    if (!NDEBUG)
 		    {
-		    	k = Damd_post_tree.AMD_post_tree (i, k, Child, Sibling, Order,
+		    	k = amd_post_tree (i, k, Child, Sibling, Order,
 		    			Stack) ;
 		    }
 		    else
 		    {
-		    	k = Damd_post_tree.AMD_post_tree (i, k, Child, Sibling, Order,
+		    	k = amd_post_tree (i, k, Child, Sibling, Order,
 		    			Stack, nn) ;
 		    }
 		}

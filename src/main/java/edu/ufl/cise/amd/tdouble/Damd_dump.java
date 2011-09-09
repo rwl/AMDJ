@@ -20,6 +20,11 @@
 
 package edu.ufl.cise.amd.tdouble;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  * Debugging routines for AMD.  Not used if NDEBUG is not defined at compile-
  * time (the default).  See comments in amd_internal.h on how to enable
@@ -32,24 +37,34 @@ public class Damd_dump extends Damd_internal {
 	 *
 	 * @param s
 	 */
-	public static void AMD_debug_init (String s)
+	public static void amd_debug_init (String s)
 	{
 		if (!NDEBUG)
 		{
-			FILE f ;
-			f = fopen ("debug.amd", "r") ;
-			if (f == null)
+			File f ;
+			f = new File("debug.amd") ;
+			if (!f.exists())
 			{
 			Damd.AMD_debug = -999 ;
 			}
 			else
 			{
-			fscanf (f, ID, AMD_debug) ;
-			fclose (f) ;
+			try {
+				FileReader fr ;
+				fr = new FileReader(f) ;
+				BufferedReader br ;
+				br = new BufferedReader(fr) ;
+				AMD_debug = Integer.valueOf( br.readLine() ) ;
+				br.close() ;
+				fr.close() ;
+			} catch (IOException e) {
+				System.out.printf ("%s: AMD_debug_init, " +
+						"error reading debug.amd file", s) ;
+			}
 			}
 			if (AMD_debug >= 0)
 			{
-			printf ("%s: AMD_debug_init, D= "+ID+"\n", s, AMD_debug) ;
+			System.out.printf ("%s: AMD_debug_init, D= "+ID+"\n", s, AMD_debug) ;
 			}
 		}
 	}
@@ -74,7 +89,7 @@ public class Damd_dump extends Damd_internal {
 	 * @param W size n
 	 * @param nel
 	 */
-	public static void AMD_dump (int n, int[] Pe, int[] Iw, int[] Len,
+	public static void amd_dump (int n, int[] Pe, int[] Iw, int[] Len,
 			int iwlen, int pfree, int[] Nv, int[] Next, int[] Last, int[] Head,
 			int[] Elen, int[] Degree, int[] W, int nel)
 	{

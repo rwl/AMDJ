@@ -55,7 +55,7 @@ public class Damd_valid extends Damd_internal {
 	 * @param Ai row indices of A, of size nz = Ap [n_col]
 	 * @return
 	 */
-	public static int AMD_valid (int n_row, int n_col, final int[] Ap,
+	public static int amd_valid (int n_row, int n_col, final int[] Ap,
 			final int[] Ai)
 	{
 		int nz, j, p1, p2, ilast, i, p, result = AMD_OK ;
