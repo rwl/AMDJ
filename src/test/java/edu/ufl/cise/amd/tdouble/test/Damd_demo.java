@@ -20,6 +20,7 @@
 
 package edu.ufl.cise.amd.tdouble.test;
 
+import edu.ufl.cise.amd.tdouble.Damd_internal;
 import junit.framework.TestCase;
 
 import static edu.ufl.cise.amd.tdouble.Damd.AMD_CONTROL;
@@ -76,7 +77,7 @@ public class Damd_demo extends TestCase {
 		/* column 23: */    6, 11, 12, 23 } ;
 
 
-	public void amd_demo_test() {
+	public void test_amd_demo() {
 
 		int[] P = new int [24] ;
 		int[] Pinv = new int [24] ;
@@ -84,6 +85,8 @@ public class Damd_demo extends TestCase {
 		double[] Control = new double [AMD_CONTROL] ;
 		double[] Info = new double [AMD_INFO] ;
 		char[][] A = new char[24][24] ;
+
+		Damd_internal.NPRINT = false;
 
 		/* here is an example of how to use AMD_VERSION.  This code will work in
 		 * any version of AMD. */

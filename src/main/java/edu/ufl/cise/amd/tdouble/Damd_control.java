@@ -68,6 +68,6 @@ public class Damd_control extends Damd_internal {
 		PRINTF ("    aggressive absorption:  no\n") ;
 		}
 
-//		PRINTF ("    size of AMD integer: %d\n\n", sizeof (int)) ;
+		PRINTF ("    size of AMD integer: %d\n\n", 4) ;  // sizeof (int)
 	}
 }

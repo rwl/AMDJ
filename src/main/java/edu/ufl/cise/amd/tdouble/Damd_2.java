@@ -1256,11 +1256,11 @@ public class Damd_2 extends Damd_internal {
 			/* place in hash bucket.  Save hash key of i in Last [i]. */
 			/* --------------------------------------------------------- */
 
-			/* NOTE: this can fail if hash is negative, because the ANSI C
+			/* FIXME: this can fail if hash is negative, because the ANSI C
 			 * standard does not define a % b when a and/or b are negative.
 			 * That's why hash is defined as an unsigned int, to avoid this
 			 * problem. */
-			hash = hash % n ;
+			hash = Math.abs(hash) % n ;
 			ASSERT (((int) hash) >= 0 && ((int) hash) < n) ;
 
 			/* if the Hhead array is not used: */

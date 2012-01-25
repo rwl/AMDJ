@@ -39,7 +39,7 @@ public class Damd_order extends Damd_internal {
 			double[] Info)
 	{
 		int[] Len, S, Pinv, Rp, Ri, Cp, Ci ;
-		int nz, i, info, status ;//, ok ;
+		int nz, i, info, status, ok ;
 		int nzaat, slen ;
 		double mem = 0 ;
 
@@ -83,7 +83,7 @@ public class Damd_order extends Damd_internal {
 		return (AMD_INVALID) ;
 		}
 
-		/* check if n or nz will cause size_t overflow */
+		/* FIXME: check if n or nz will cause size_t overflow */
 		if (n >= Int_MAX //SIZE_T_MAX / sizeof (int)
 		 || nz >= Int_MAX) //SIZE_T_MAX / sizeof (int))
 		{
@@ -160,31 +160,31 @@ public class Damd_order extends Damd_internal {
 
 		S = null ;
 		slen = nzaat ;			/* space for matrix */
-//		ok = ((slen + nzaat/5) >= slen) ? 1 : 0 ; 	/* check for size_t overflow */
-//		slen += nzaat/5 ;			/* add elbow room */
-//		for (i = 0 ; ok != 0 && i < 7 ; i++)
-//		{
-//		ok = ((slen + n) > slen) ?  1 : 0;	/* check for size_t overflow */
-//		slen += n ;			/* size-n elbow room, 6 size-n work */
-//		}
-//		mem += slen ;
-//		ok = (ok != 0 && (slen < Int_MAX)) ? 1 : 0 ;  /* check for overflow */
-//		ok = (ok != 0 && (slen < Int_MAX)) ? 1 : 0 ;  /* S[i] for int i must be OK */
-//		try
-//		{
-//		if (ok != 0)
-//		{
-//		S = new int[slen] ;
-//		}
-//		AMD_DEBUG1 ("slen %g\n", (double) slen) ;
-//		} catch (OutOfMemoryError e) {
-//		/* :: out of memory :: (or problem too large) */
-//		Rp = null ;
-//		Ri = null ;
-//		Len = null ;
-//		Pinv = null ;
-//		return (AMD_OUT_OF_MEMORY) ;
-//		}
+		ok = ((slen + nzaat/5) >= slen) ? 1 : 0 ; 	/* check for size_t overflow */
+		slen += nzaat/5 ;			/* add elbow room */
+		for (i = 0 ; ok != 0 && i < 7 ; i++)
+		{
+		ok = ((slen + n) > slen) ?  1 : 0;	/* check for size_t overflow */
+		slen += n ;			/* size-n elbow room, 6 size-n work */
+		}
+		mem += slen ;
+		//ok = (ok != 0 && (slen < Int_MAX)) ? 1 : 0 ;  /* check for overflow */
+		ok = (ok != 0 && (slen < Int_MAX)) ? 1 : 0 ;  /* S[i] for int i must be OK */
+		try
+		{
+		if (ok != 0)
+		{
+		//S = new int[slen] ;  // *** Workspace unused in AMDJ ***
+		}
+		AMD_DEBUG1 ("slen %g\n", (double) slen) ;
+		} catch (OutOfMemoryError e) {
+		/* :: out of memory :: (or problem too large) */
+		Rp = null ;
+		Ri = null ;
+		Len = null ;
+		Pinv = null ;
+		return (AMD_OUT_OF_MEMORY) ;
+		}
 		if (info != 0)
 		{
 		/* memory usage, in bytes. */
@@ -205,7 +205,7 @@ public class Damd_order extends Damd_internal {
 		Ri = null ;
 		Len = null ;
 		Pinv = null ;
-//		S = null ;
+		S = null ;
 		if (info != 0) Info [AMD_STATUS] = status ;
 		return (status) ;	    /* successful ordering */
 	}

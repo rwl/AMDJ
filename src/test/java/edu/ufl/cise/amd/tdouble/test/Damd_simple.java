@@ -32,7 +32,7 @@ public class Damd_simple extends TestCase {
 	int[] P = new int [5] ;
 	int[] sol = new int[] {0, 3, 2, 4, 1} ;
 
-	public void amd_simple_test() {
+	public void test_amd_simple() {
 	    int k ;
 	    amd_order (n, Ap, Ai, P, null, null) ;
 	    for (k = 0 ; k < n ; k++)
