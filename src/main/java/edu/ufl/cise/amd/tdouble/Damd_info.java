@@ -74,23 +74,23 @@ public class Damd_info extends Damd_internal {
 		}
 
 		/* statistics about the input matrix */
-		PRI ("    n, dimension of A:                                  %.20g\n",
+		PRI ("    n, dimension of A:                                  %6.0f\n",
 		n);
-		PRI ("    nz, number of nonzeros in A:                        %.20g\n",
+		PRI ("    nz, number of nonzeros in A:                        %6.0f\n",
 		Info [AMD_NZ]) ;
 		PRI ("    symmetry of A:                                      %.4f\n",
 		Info [AMD_SYMMETRY]) ;
-		PRI ("    number of nonzeros on diagonal:                     %.20g\n",
+		PRI ("    number of nonzeros on diagonal:                     %6.0f\n",
 		Info [AMD_NZDIAG]) ;
-		PRI ("    nonzeros in pattern of A+A' (excl. diagonal):       %.20g\n",
+		PRI ("    nonzeros in pattern of A+A' (excl. diagonal):       %6.0f\n",
 		Info [AMD_NZ_A_PLUS_AT]) ;
-		PRI ("    # dense rows/columns of A+A':                       %.20g\n",
+		PRI ("    # dense rows/columns of A+A':                       %6.0f\n",
 		Info [AMD_NDENSE]) ;
 
 		/* statistics about AMD's behavior  */
-		PRI ("    memory used, in bytes:                              %.20g\n",
+		PRI ("    memory used, in bytes:                              %6.0f\n",
 		Info [AMD_MEMORY]) ;
-		PRI ("    # of memory compactions:                            %.20g\n",
+		PRI ("    # of memory compactions:                            %6.0f\n",
 		Info [AMD_NCMPA]) ;
 
 		/* statistics about the ordering quality */
@@ -100,17 +100,17 @@ public class Damd_info extends Damd_internal {
 		"    bounds if there are no dense rows/columns in A+A', and become\n" +
 		"    looser if dense rows/columns exist.\n\n") ;
 
-		PRI ("    nonzeros in L (excluding diagonal):                 %.20g\n",
+		PRI ("    nonzeros in L (excluding diagonal):                 %6.0f\n",
 		lnz) ;
-		PRI ("    nonzeros in L (including diagonal):                 %.20g\n",
+		PRI ("    nonzeros in L (including diagonal):                 %6.0f\n",
 		lnzd) ;
-		PRI ("    # divide operations for LDL' or LU:                 %.20g\n",
+		PRI ("    # divide operations for LDL' or LU:                 %6.0f\n",
 		ndiv) ;
-		PRI ("    # multiply-subtract operations for LDL':            %.20g\n",
+		PRI ("    # multiply-subtract operations for LDL':            %6.0f\n",
 		nmultsubs_ldl) ;
-		PRI ("    # multiply-subtract operations for LU:              %.20g\n",
+		PRI ("    # multiply-subtract operations for LU:              %6.0f\n",
 		nmultsubs_lu) ;
-		PRI ("    max nz. in any column of L (incl. diagonal):        %.20g\n",
+		PRI ("    max nz. in any column of L (incl. diagonal):        %6.0f\n",
 		Info [AMD_DMAX]) ;
 
 		/* total flop counts for various factorizations */
@@ -118,11 +118,11 @@ public class Damd_info extends Damd_internal {
 		if (n >= 0 && ndiv >= 0 && nmultsubs_ldl >= 0 && nmultsubs_lu >= 0)
 		{
 		PRINTF ("\n" +
-		"    chol flop count for real A, sqrt counted as 1 flop: %.20g\n" +
-		"    LDL' flop count for real A:                         %.20g\n" +
-		"    LDL' flop count for complex A:                      %.20g\n" +
-		"    LU flop count for real A (with no pivoting):        %.20g\n" +
-		"    LU flop count for complex A (with no pivoting):     %.20g\n\n",
+		"    chol flop count for real A, sqrt counted as 1 flop: %6.0f\n" +
+		"    LDL' flop count for real A:                         %6.0f\n" +
+		"    LDL' flop count for complex A:                      %6.0f\n" +
+		"    LU flop count for real A (with no pivoting):        %6.0f\n" +
+		"    LU flop count for complex A (with no pivoting):     %6.0f\n\n",
 		n + ndiv + 2*nmultsubs_ldl,
 			ndiv + 2*nmultsubs_ldl,
 		9*ndiv + 8*nmultsubs_ldl,

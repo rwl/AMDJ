@@ -20,6 +20,7 @@
 
 package edu.ufl.cise.amd.tdouble.test;
 
+import edu.ufl.cise.amd.tdouble.Damd;
 import edu.ufl.cise.amd.tdouble.Damd_internal;
 import junit.framework.TestCase;
 
@@ -87,6 +88,8 @@ public class Damd_demo extends TestCase {
 		char[][] A = new char[24][24] ;
 
 		Damd_internal.NPRINT = false;
+		//Damd_internal.NDEBUG = false;
+		//Damd.AMD_debug = 1;
 
 		/* here is an example of how to use AMD_VERSION.  This code will work in
 		 * any version of AMD. */

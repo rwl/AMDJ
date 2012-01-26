@@ -605,7 +605,7 @@ public class Damd_2 extends Damd_internal {
 		}
 		dense = MAX (16, dense) ;
 		dense = MIN (n,  dense) ;
-		AMD_DEBUG1 ("\n\nAMD (debug), alpha %g, aggr. "+ID+"\n",
+		AMD_DEBUG1 ("\n\nAMD (debug), alpha %.2f, aggr. "+ID+"\n",
 		alpha, aggressive) ;
 
 		for (i = 0 ; i < n ; i++)

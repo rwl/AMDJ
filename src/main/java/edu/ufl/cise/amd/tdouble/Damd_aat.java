@@ -55,7 +55,7 @@ public class Damd_aat extends Damd_internal {
 
 		if (!NDEBUG)
 		{
-			amd_debug_init ("AMD AAT") ;
+//			amd_debug_init ("AMD AAT") ;
 			for (k = 0 ; k < n ; k++) Tp [k] = EMPTY ;
 			ASSERT (amd_valid (n, n, Ap, Ai) == AMD_OK) ;
 		}
@@ -188,9 +188,9 @@ public class Damd_aat extends Damd_internal {
 		nzaat += Len [k] ;
 		}
 
-		AMD_DEBUG1 ("AMD nz in A+A', excluding diagonal (nzaat) = %g\n",
-		(double) nzaat) ;
-		AMD_DEBUG1 ("   nzboth: "+ID+" nz: "+ID+" nzdiag: "+ID+" symmetry: %g\n",
+		AMD_DEBUG1 ("AMD nz in A+A', excluding diagonal (nzaat) = %d\n",
+		nzaat) ;
+		AMD_DEBUG1 ("   nzboth: "+ID+" nz: "+ID+" nzdiag: "+ID+" symmetry: %.3f\n",
 			nzboth, nz, nzdiag, sym) ;
 
 		if (Info != null)

@@ -45,7 +45,7 @@ public class Damd_order extends Damd_internal {
 
 		if (!NDEBUG)
 		{
-			amd_debug_init ("amd") ;
+//			amd_debug_init ("amd") ;
 		}
 
 		/* clear the Info array, if it exists */
@@ -151,7 +151,7 @@ public class Damd_order extends Damd_internal {
 		/* --------------------------------------------------------------------- */
 
 		nzaat = amd_aat (n, Cp, Ci, Len, P, Info) ;
-		AMD_DEBUG1 ("nzaat: %g\n", (double) nzaat) ;
+		AMD_DEBUG1 ("nzaat: %d\n", nzaat) ;
 		ASSERT ((MAX (nz-n, 0) <= nzaat) && (nzaat <= 2 * nz)) ;
 
 		/* --------------------------------------------------------------------- */
@@ -176,7 +176,7 @@ public class Damd_order extends Damd_internal {
 		{
 		//S = new int[slen] ;  // *** Workspace unused in AMDJ ***
 		}
-		AMD_DEBUG1 ("slen %g\n", (double) slen) ;
+		AMD_DEBUG1 ("slen %d\n", slen) ;
 		} catch (OutOfMemoryError e) {
 		/* :: out of memory :: (or problem too large) */
 		Rp = null ;

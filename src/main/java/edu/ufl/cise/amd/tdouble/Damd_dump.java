@@ -128,7 +128,7 @@ public class Damd_dump extends Damd_internal {
 				else
 				{
 				AMD_DEBUG3 ("\nI "+ID+": active principal supervariable:\n",i);
-				AMD_DEBUG3 ("   nv(i): "+ID+"  Flag: %d\n", nv, (nv < 0)) ;
+				AMD_DEBUG3 ("   nv(i): "+ID+"  Flag: %d\n", nv, (nv < 0) ? 1 : 0) ;
 				ASSERT (elen >= 0) ;
 				ASSERT (nv > 0 && pe >= 0) ;
 				p = pe ;
