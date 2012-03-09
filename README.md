@@ -18,5 +18,5 @@ the terms of the GNU Lesser General Public License as published by
 the Free Software Foundation; either version 2.1 of the License, or
 (at your option) any later version.
 
-[![Build Status](https://secure.travis-ci.org/[rwl]/[AMDJ].png)](http://travis-ci.org/[rwl]/[AMDJ])
+[![Build Status](https://secure.travis-ci.org/rwl/AMDJ.png)](http://travis-ci.org/rwl/AMDJ)
 
