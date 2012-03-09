@@ -10,8 +10,7 @@ License and Copyright
 ---------------------
 
 Copyright (C) 2009-2011 Timothy A. Davis, Patrick R. Amestoy,
-and Iain S. Duff. 
-
+and Iain S. Duff.  
 Copyright (C) 2011-2012 Richard Lincoln
 
 AMD is free software; you can redistribute it and/or modify it under
