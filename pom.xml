@@ -12,6 +12,37 @@
     </license>
   </licenses>
 
+  <scm>
+    <url>git://github.com/rwl/AMDJ.git</url>
+    <connection>scm:git:git://github.com/rwl/AMDJ.git</connection>
+    <developerConnection>scm:git:git://github.com/rwl/AMDJ.git</developerConnection>
+  </scm>
+
+  <developers>
+    <developer>
+      <id>rwl</id>
+      <name>Richard Lincoln</name>
+      <email>r.w.lincoln@gmail.com</email>
+    </developer>
+  </developers>
+
+  <distributionManagement>
+    <repository>
+      <id>sonatype-nexus-staging</id>
+      <name>Sonatype OSS Staging Repository</name>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+    </repository>
+    <snapshotRepository>
+      <id>sonatype-nexus-snapshots</id>
+      <name>Sonatype OSS Snapshot Repository</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <dependencies>
   	<dependency>
   		<groupId>junit</groupId>
@@ -23,7 +54,6 @@
 
   <build>
     <plugins>
-
        <plugin>
          <!-- required for static imports -->
          <groupId>org.apache.maven.plugins</groupId>
@@ -44,7 +74,46 @@
         </configuration>
       </plugin>
 
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          <!-- need this for gpg plugin to work correctly -->
+          <mavenExecutorId>forked-path</mavenExecutorId>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>release-sign-artifacts</id>
+      <activation>
+        <property>
+          <name>performRelease</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.4</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>
