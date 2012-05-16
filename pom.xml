@@ -3,6 +3,9 @@
   <groupId>com.github.rwl</groupId>
   <artifactId>AMDJ</artifactId>
   <version>1.0.1-SNAPSHOT</version>
+  <name>AMDJ</name>
+  <description>A set of routines for ordering a sparse matrix prior to Cholesky factorization.</description>
+  <url>http://github.com/rwl/AMDJ</url>
 
   <licenses>
     <license>
