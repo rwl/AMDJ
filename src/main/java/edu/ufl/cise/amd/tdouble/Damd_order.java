@@ -38,7 +38,7 @@ public class Damd_order extends Damd_internal {
 			double[] Control,
 			double[] Info)
 	{
-		int[] Len, S, Pinv, Rp, Ri, Cp, Ci ;
+		int[] Len, Pinv, Rp, Ri, Cp, Ci ;
 		int nz, i, info, status, ok ;
 		int nzaat, slen ;
 		double mem = 0 ;
@@ -158,7 +158,6 @@ public class Damd_order extends Damd_internal {
 		/* allocate workspace for matrix, elbow room, and 6 size-n vectors */
 		/* --------------------------------------------------------------------- */
 
-		S = null ;
 		slen = nzaat ;			/* space for matrix */
 		ok = ((slen + nzaat/5) >= slen) ? 1 : 0 ; 	/* check for size_t overflow */
 		slen += nzaat/5 ;			/* add elbow room */
@@ -195,7 +194,7 @@ public class Damd_order extends Damd_internal {
 		/* order the matrix */
 		/* --------------------------------------------------------------------- */
 
-		amd_1 (n, Cp, Ci, P, Pinv, Len, slen, S, Control, Info) ;
+		amd_1 (n, Cp, Ci, P, Pinv, Len, slen, Control, Info) ;
 
 		/* --------------------------------------------------------------------- */
 		/* free the workspace */
@@ -205,7 +204,6 @@ public class Damd_order extends Damd_internal {
 		Ri = null ;
 		Len = null ;
 		Pinv = null ;
-		S = null ;
 		if (info != 0) Info [AMD_STATUS] = status ;
 		return (status) ;	    /* successful ordering */
 	}

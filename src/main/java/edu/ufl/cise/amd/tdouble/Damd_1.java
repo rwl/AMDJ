@@ -56,7 +56,7 @@ public class Damd_1 extends Damd_internal {
 	 * @param Info output array of size AMD_INFO
 	 */
 	public static void amd_1(int n, final int[] Ap, final int[] Ai,
-			int[] P, int[] Pinv, int[] Len, int slen, int[] S,
+			int[] P, int[] Pinv, int[] Len, int slen,
 			double[] Control, double[] Info)
 	{
 		int i, j, k, p, pfree, iwlen, pj, p1, p2, pj2;
@@ -69,20 +69,12 @@ public class Damd_1 extends Damd_internal {
 		ASSERT (n > 0) ;
 
 		iwlen = slen - 6*n ;
-		//s = S ;
-		//Pe = s ;	    s += n ;
 		Pe = new int[n] ;
-		//Nv = s ;	    s += n ;
 		Nv = new int[n] ;
-		//Head = s ;	    s += n ;
 		Head = new int[n] ;
-		//Elen = s ;	    s += n ;
 		Elen = new int[n] ;
-		//Degree = s ;    s += n ;
 		Degree = new int[n] ;
-		//W = s ;	    s += n ;
 		W = new int[n] ;
-		//Iw = s ;	    s += iwlen ;
 		Iw = new int[iwlen] ;
 
 		ASSERT (amd_valid (n, n, Ap, Ai) == AMD_OK) ;
