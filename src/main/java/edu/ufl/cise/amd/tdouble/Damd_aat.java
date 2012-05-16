@@ -20,7 +20,7 @@
 
 package edu.ufl.cise.amd.tdouble;
 
-import static edu.ufl.cise.amd.tdouble.Damd_dump.amd_debug_init;
+//import static edu.ufl.cise.amd.tdouble.Damd_dump.amd_debug_init;
 import static edu.ufl.cise.amd.tdouble.Damd_valid.amd_valid;
 
 /**

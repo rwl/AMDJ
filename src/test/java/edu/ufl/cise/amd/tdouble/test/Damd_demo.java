@@ -20,7 +20,6 @@
 
 package edu.ufl.cise.amd.tdouble.test;
 
-import edu.ufl.cise.amd.tdouble.Damd;
 import edu.ufl.cise.amd.tdouble.Damd_internal;
 import junit.framework.TestCase;
 
